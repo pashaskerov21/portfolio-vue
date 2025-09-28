@@ -1,5 +1,6 @@
 <template>
   <Preloader />
+  <SocialIcons v-if="personalData" class-name="fixed-icons" :personal-data="personalData"></SocialIcons>
   <Header v-if="personalData && menuData" :personalData="personalData" :menuData="menuData"></Header>
   <main v-if="personalData && menuData">
     <NuxtPage />
