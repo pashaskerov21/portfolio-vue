@@ -17,12 +17,23 @@
               CV
             </a>
 
+            <!-- Version Dropdown -->
+            <div class="version-dropdown">
+              <div class="active-version">
+                <img src="/design/vue-logo.png" width="16" height="16" alt="Version Vue">
+              </div>
+              <ul class="version-menu">
+                <li><a href="https://alipashaskerov.vercel.app/"><img :src="currentTheme === 'dark' ? '/design/next-js-2.svg' : '/design/next-js.svg'" width="16" height="16" alt="Version Next"></a></li>
+                <li class="angular"><a href="https://alipashaskerov2.vercel.app/"><img src="/design/angular-logo.png" width="16" height="16" alt="Version Angular"></a></li>
+              </ul>
+            </div>
             <!-- Theme Button -->
             <button class="theme-button" @click="toggleTheme" aria-label="Theme toggle button" type="button">
               <i v-if="currentTheme === 'dark'" class="pi pi-sun"></i>
               <i v-else class="pi pi-moon"></i>
             </button>
 
+            
             <!-- Mobile Menu Button -->
             <button class="menu-button d-lg-none" @click="toggleMenu" :class="{ active: menuState !== 'closed' }"
               aria-label="Mobile Menu toggle button" type="button">

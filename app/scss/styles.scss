@@ -4,65 +4,76 @@
 
 
 /*preloader*/
-.preloader{
+.preloader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: light-dark($bg-color-light,$bg-color-dark);
-    @include flex(column,center,center);
+    background-color: light-dark($bg-color-light, $bg-color-dark);
+    @include flex(column, center, center);
     gap: 20px;
     z-index: 999999;
     padding: 20px;
     text-align: center;
-    &.hide{
+
+    &.hide {
         display: none;
     }
-    .percent{
+
+    .percent {
         color: $primary-color;
         font-size: 20px;
         font-weight: 900;
-        @include flex(row,center,center);
+        @include flex(row, center, center);
         width: 80px;
         height: 80px;
         border-radius: 50%;
         transition: all 0.3s;
-        span{
-            @include flex(row,center,center);
+
+        span {
+            @include flex(row, center, center);
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            background-color: light-dark($bg-color-light,$bg-color-dark);
+            background-color: light-dark($bg-color-light, $bg-color-dark);
         }
-        &.complete{
+
+        &.complete {
             color: #fff;
-            span{
+
+            span {
                 background-color: $primary-color;
             }
         }
-        &.hide{
-           display: none;
+
+        &.hide {
+            display: none;
         }
     }
-    .progress{
+
+    .progress {
         width: 100%;
         max-width: 500px;
         height: 40px;
-        .bar{
+
+        .bar {
             border-radius: 10px;
             width: 0%;
             height: 100%;
             background-color: $primary-color;
         }
     }
-    .logo-item{
+
+    .logo-item {
         display: none;
-        &.show{
-           display: block;
+
+        &.show {
+            display: block;
         }
     }
 }
+
 /*preloader*/
 
 /*scroll-btn*/
@@ -82,20 +93,24 @@
     transform: translateY(100px);
     transition: all 0.3s;
     border: 1px solid light-dark($bg-color-light, $bg-color-dark);
+
     &.visible {
         opacity: 1;
         transform: translateY(0);
     }
-    &:hover{
+
+    &:hover {
         animation: pulsePrimary 1s ease infinite;
         border-color: $primary-color;
     }
 }
-@keyframes borderRotate{
-    100%{
+
+@keyframes borderRotate {
+    100% {
         transform: rotate(1turn);
     }
 }
+
 /*scroll-btn*/
 
 /*logo*/
@@ -112,7 +127,8 @@
     color: $primary-color;
     position: relative;
     transition: all 0.2s;
-    span{
+
+    span {
         display: inline-block;
         transition: all 0.3s;
         margin-right: 1px;
@@ -131,30 +147,33 @@
         line-height: 32px;
     }
 
-    &:hover{
-        span{
+    &:hover {
+        span {
             opacity: 1;
             animation: logoAnimation 0.4s ease forwards;
         }
     }
+
     &.infinite {
-        span{
+        span {
             opacity: 1;
             animation: logoAnimation 0.4s ease infinite;
         }
     }
 }
 
-@keyframes spanRenderAnimation{
-    0%{
+@keyframes spanRenderAnimation {
+    0% {
         opacity: 0;
         transform: translateY(-10px);
     }
-    100%{
+
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 @keyframes logoAnimation {
     0% {
         transform: translateY(0);
@@ -168,6 +187,7 @@
         transform: translateY(0);
     }
 }
+
 /*logo*/
 
 
@@ -252,16 +272,19 @@
             }
         }
     }
-    &.about-icons{
-        @include flex(row,center,center);
+
+    &.about-icons {
+        @include flex(row, center, center);
         gap: 10px;
-        &:hover{
-            a{
+
+        &:hover {
+            a {
                 opacity: 0.4;
             }
         }
-        a{
-            @include flex(row,center,center);
+
+        a {
+            @include flex(row, center, center);
             width: 45px;
             height: 45px;
             border-radius: 50%;
@@ -270,14 +293,15 @@
             position: relative;
             font-size: 18px;
             transition: all 0.3s;
-            &:hover{
+
+            &:hover {
                 background-color: $primary-color;
                 color: #fff;
                 opacity: 1 !important;
                 animation: pulsePrimary 1s ease infinite
             }
         }
-        
+
     }
 }
 
@@ -292,6 +316,7 @@
         transform: scale(1);
     }
 }
+
 /*social icons*/
 
 
@@ -328,6 +353,91 @@ header {
     .header-progress {
         height: 3px;
         background-color: $primary-color;
+    }
+}
+
+.version-dropdown {
+    position: relative;
+
+    .active-version {
+        border-radius: 50%;
+        background-color: light-dark($bg-color-dark, $bg-color-light);
+        border: 1px solid light-dark($bg-color-dark, $bg-color-light);
+        cursor: pointer;
+        padding: 6px;
+        width: 30px;
+        height: 30px;
+        @include flex(row, center, center);
+
+        &.angular {
+            padding: 3px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .version-menu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px 0;
+        @include flex(column, center, center);
+        gap: 5px;
+        display: none;
+
+        li {
+            border-radius: 50%;
+            background-color: light-dark($bg-color-dark, $bg-color-light);
+            border: 1px solid light-dark($bg-color-dark, $bg-color-light);
+            padding: 6px;
+            width: 30px;
+            height: 30px;
+            opacity: 0;
+            transform: scale(0);
+            @include flex(row, center, center);
+
+            &.angular {
+                padding: 3px;
+            }
+
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+
+    &:hover {
+        .version-menu {
+            display: flex;
+
+            li {
+                &:nth-child(1) {
+                    animation: versionLinkAnimation 0.5s ease forwards;
+                }
+
+                &:nth-child(2) {
+                    animation: versionLinkAnimation 0.5s ease 0.2s forwards;
+                }
+            }
+        }
+    }
+}
+@keyframes versionLinkAnimation{
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -686,15 +796,17 @@ header {
         transform: translateY(0);
     }
 }
+
 /*header*/
 
 /*footer*/
-footer{
+footer {
     width: 100%;
     background-color: $primary-color;
     padding: 15px;
-    @include flex(row,center,center);
+    @include flex(row, center, center);
 }
+
 /*footer*/
 
 
@@ -869,6 +981,7 @@ footer{
         width: 100%;
     }
 }
+
 /*banner*/
 
 /*counter-item*/
@@ -899,6 +1012,7 @@ footer{
         font-weight: 500;
     }
 }
+
 /*counter-item*/
 
 /*about*/
@@ -995,23 +1109,28 @@ section.about-section {
             border: 1px solid $primary-color;
             opacity: 0;
         }
-        &::after{
+
+        &::after {
             left: 0;
         }
-        &::before{
+
+        &::before {
             right: 0;
         }
-        &:hover{
+
+        &:hover {
             color: #fff;
             animation: pulsePrimary 1s ease 0.5s infinite;
+
             &::after,
-            &::before{
+            &::before {
                 opacity: 1;
                 width: 100%;
             }
         }
     }
 }
+
 /*about*/
 
 /*services*/
@@ -1093,11 +1212,13 @@ section.about-section {
                 top: 0;
             }
         }
+
         &:nth-child(even) {
             &::after {
                 bottom: 0;
             }
         }
+
         &:hover {
 
             &::after {
@@ -1110,23 +1231,28 @@ section.about-section {
             .text {
                 color: #fff;
             }
-            .icon{
+
+            .icon {
                 animation: serviceIconAnimation 1s ease-in-out forwards;
             }
         }
     }
 }
-@keyframes serviceIconAnimation{
-    0%{
+
+@keyframes serviceIconAnimation {
+    0% {
         transform: scale(0);
     }
-    50%{
+
+    50% {
         transform: scale(1.2);
     }
-    100%{
+
+    100% {
         transform: scale(1);
     }
 }
+
 /*services*/
 
 /*experience*/
@@ -1145,16 +1271,18 @@ section.about-section {
         border: 1px solid $primary-color;
         gap: 20px;
         padding: 20px;
-        @include flex(column,center,flex-start);
+        @include flex(column, center, flex-start);
         transition: all 0.3s;
-        @media (min-width: 992px){
+
+        @media (min-width: 992px) {
             @include flex(row, space-between, stretch);
         }
 
         .left {
             width: 100%;
-            @include flex(column,space-between,flex-start);
+            @include flex(column, space-between, flex-start);
             gap: 10px;
+
             .left-header {
                 width: 100%;
                 @include flex(column, center, flex-start);
@@ -1189,6 +1317,7 @@ section.about-section {
                 }
             }
         }
+
         .card-body {
             width: 100%;
             font-family: $primary-font;
@@ -1202,60 +1331,70 @@ section.about-section {
                 }
             }
         }
-        &:hover{
+
+        &:hover {
             background-color: $primary-color;
-            *{
+
+            * {
                 color: #fff !important;
             }
         }
     }
 }
+
 /*experience*/
 
 
 /*skills*/
-.skills-section{
+.skills-section {
     padding: 60px 0 0;
 }
 
-.skills-wrapper{
+.skills-wrapper {
     width: 100%;
-    @include flex(row,center,center);
+    @include flex(row, center, center);
     gap: 40px;
     flex-wrap: wrap;
 }
-.skill-card{
+
+.skill-card {
     width: 100px;
     height: 100px;
-    @include flex(column,center,center);
+    @include flex(column, center, center);
     gap: 15px;
     background-color: light-dark($bg-color-mute-light, $bg-color-mute-dark);
     border-radius: 20px;
     padding: 10px;
     position: relative;
-    @media(min-width: 1200px){
+
+    @media(min-width: 1200px) {
         width: 140px;
         height: 140px;
         gap: 20px;
     }
-    img{
+
+    img {
         width: 30px;
         height: 30px;
         object-fit: contain;
-        @media(min-width: 1200px){
+
+        @media(min-width: 1200px) {
             width: 50px;
             height: 50px;
         }
     }
-    .title{
+
+    .title {
         font-size: 12px;
         font-weight: 600;
         text-align: center;
-        @media(min-width: 1200px){
+
+        @media(min-width: 1200px) {
             font-size: 14px
         }
     }
-    .border{
+
+    .border {
         position: absolute;
         width: 105px;
         height: 105px;
@@ -1265,12 +1404,14 @@ section.about-section {
         border-radius: 20px;
         overflow: hidden;
         z-index: -1;
-        @include flex(row,center,center);
-        @media(min-width: 1200px){
+        @include flex(row, center, center);
+
+        @media(min-width: 1200px) {
             width: 145px;
             height: 145px;
         }
-        span{
+
+        span {
             display: block;
             position: absolute;
             width: 300px;
@@ -1281,14 +1422,16 @@ section.about-section {
     }
 }
 
-@keyframes skillAnimation{
-    0%{
+@keyframes skillAnimation {
+    0% {
         transform: rotate(0)
     }
-    100%{
+
+    100% {
         transform: rotate(360deg)
     }
 }
+
 /*skills*/
 
 /*projects*/
@@ -1466,13 +1609,13 @@ section.about-section {
     }
 }
 
-.projects-link{
+.projects-link {
     margin: 20px auto;
     padding: 15px;
     border: 10px;
     background-color: $primary-color;
     color: #fff;
-    @include flex(row,center,center);
+    @include flex(row, center, center);
     max-width: 300px;
     border-radius: 10px;
     text-transform: uppercase;
@@ -1480,28 +1623,31 @@ section.about-section {
     text-align: center;
     font-weight: 600;
 }
+
 /*projects*/
 
 /*education*/
-.education-section{
+.education-section {
     padding: 60px 0;
 }
 
-.edu-wrapper{
+.edu-wrapper {
     width: 100%;
-    @include flex(column,center,center);
+    @include flex(column, center, center);
     gap: 30px;
-    .edu-card{
+
+    .edu-card {
         width: 100%;
         max-width: 1000px;
         border-radius: 10px;
         border: 1px solid $primary-color;
         padding: 20px;
-        @include flex(column,center,center);
+        @include flex(column, center, center);
         gap: 30px;
         position: relative;
         transition: all 0.3s;
-        .score{
+
+        .score {
             position: absolute;
             top: 10px;
             right: 10px;
@@ -1510,38 +1656,47 @@ section.about-section {
             background-color: $primary-color;
             color: #fff;
             font-size: 10px;
-            @media (min-width: 992px){
+
+            @media (min-width: 992px) {
                 font-size: 12px;
             }
         }
-        .card-header{
+
+        .card-header {
             width: 100%;
-            @include flex(row,flex-start,center);
+            @include flex(row, flex-start, center);
             gap: 10px;
-            i{
+
+            i {
                 color: $primary-color;
                 font-size: 24px;
             }
-            .title{
+
+            .title {
                 font-size: 20px;
                 font-family: $primary-font;
             }
         }
-        .card-text{
+
+        .card-text {
             width: 100%;
-            @include flex(column,center,flex-start);
+            @include flex(column, center, flex-start);
             font-family: $primary-font;
             gap: 10px;
-            span{
+
+            span {
                 color: $primary-color;
                 font-weight: 600;
             }
         }
-        .card-footer{
+
+        .card-footer {
             width: 100%;
-            @include flex(row,space-between,center);
+            @include flex(row, space-between, center);
             gap: 10px;
-            .edu-degree, .edu-date{
+
+            .edu-degree,
+            .edu-date {
                 padding: 8px;
                 border-radius: 10px;
                 font-weight: 600;
@@ -1552,25 +1707,35 @@ section.about-section {
                 font-size: 10px;
             }
         }
-        &:hover{
+
+        &:hover {
             background-color: $primary-color;
-            .score{
+
+            .score {
                 background-color: #fff;
                 color: $primary-color;
             }
-            .card-header{
-                i, .title{
+
+            .card-header {
+
+                i,
+                .title {
                     color: #fff;
                 }
             }
-            .card-text{
+
+            .card-text {
                 color: #fff;
-                span{
+
+                span {
                     color: #fff;
                 }
             }
-            .card-footer{
-                .edu-degree, .edu-date{
+
+            .card-footer {
+
+                .edu-degree,
+                .edu-date {
                     background-color: #fff;
                     color: $primary-color;
                 }
@@ -1578,6 +1743,7 @@ section.about-section {
         }
     }
 }
+
 /*education*/
 
 /*contact*/
@@ -1649,10 +1815,12 @@ section.about-section {
                     background-color: light-dark($bg-color-light, $bg-color-dark);
                 }
             }
-            &.invalid{
+
+            &.invalid {
                 border-color: #B52E31;
-                ~label{
-                    border-color:#B52E31;
+
+                ~label {
+                    border-color: #B52E31;
                     color: #B52E31;
                 }
             }
@@ -1723,8 +1891,9 @@ section.about-section {
                 opacity: 1;
                 transform: scale(1);
             }
-            .loader{
-                &::after{
+
+            .loader {
+                &::after {
                     border-color: $primary-color;
                     border-right-color: transparent;
                 }
@@ -1742,4 +1911,5 @@ section.about-section {
         transform: rotate(360deg)
     }
 }
+
 /*contact*/
