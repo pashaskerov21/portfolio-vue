@@ -76,8 +76,8 @@
 
           <ul class="versions">
             <li><a href="https://alipashaskerov.vercel.app/">Next JS</a></li>
-            <li><a href="https://alipashaskerov2.vercel.app/" class="active">Angular</a></li>
-            <li><a href="">Vue</a></li>
+            <li><a href="https://alipashaskerov2.vercel.app/">Angular</a></li>
+            <li><a href="https://alipashaskerov3.vercel.app/" class="active">Vue</a></li>
           </ul>
         </div>
       </div>
