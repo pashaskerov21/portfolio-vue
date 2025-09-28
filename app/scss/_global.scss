@@ -10,35 +10,6 @@
     box-sizing: border-box;
 }
 
-app-root {
-    width: 100%;
-    min-height: 100vh;
-    @include flex(column, space-between, center);
-
-    app-header {
-        width: 100%;
-    }
-
-    app-footer {
-        width: 100%;
-    }
-
-    .fix-icons-wrapper {
-        position: fixed;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
-    }
-    app-scroll-button{
-        position: fixed;
-        z-index: 999;
-    }
-    app-preloader{
-        position: fixed;
-        z-index: 99999;
-    }
-}
-
 :root.light {
     color-scheme: light;
 }

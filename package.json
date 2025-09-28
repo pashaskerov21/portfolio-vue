@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "emailjs-com": "^3.2.0",
     "nuxt": "^4.1.2",
     "primeicons": "^7.0.0",
     "scss": "^0.2.4",
