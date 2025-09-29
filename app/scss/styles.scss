@@ -200,6 +200,7 @@
         transform: translateY(-50%);
         @include flex(column, center, center);
         gap: 8px;
+        z-index: 999;
 
         li {
             opacity: 0;
@@ -1416,13 +1417,13 @@ section.about-section {
             position: absolute;
             width: 300px;
             height: 80px;
-            animation: skillAnimation 6s linear 0s infinite;
+            animation: skillCardAnimation 6s linear 0s infinite;
             border-radius: 20px;
         }
     }
 }
 
-@keyframes skillAnimation {
+@keyframes skillCardAnimation {
     0% {
         transform: rotate(0)
     }

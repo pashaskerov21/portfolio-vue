@@ -8,7 +8,7 @@
           </NuxtLink>
           <ul class="links-wrapper desktop d-none d-lg-flex">
             <li v-for="(menu, i) in menuData" :key="i" :style="{ animationDelay: i * 0.1 + 0.3 + 's' }">
-              <a :href="'#' + menu.name">{{ menu.name }}</a>
+              <a :href="'#' + menu.name" @click="scrollTo(`#${menu.name}`, $event)">{{ menu.name }}</a>
             </li>
           </ul>
           <div class="right">
@@ -60,7 +60,7 @@
         <div class="inner-top">
           <ul class="links-wrapper mobile">
             <li v-for="(menu, i) in menuData" :key="i" :style="{ animationDelay: i * 0.1 + 0.3 + 's' }">
-              <a :href="'#' + menu.name" class="menu-link" @click="toggleMenu">
+              <a :href="'#' + menu.name" class="menu-link" @click="toggleMenu; scrollTo(`#${menu.name}`, $event)">
                 {{ menu.name }}
               </a>
             </li>
@@ -105,8 +105,9 @@ import { useTheme } from '~/../composables/useTheme'
 import Logo from '~/components/Logo.vue';
 import type { MenuDataType, PersonalInformationDataType } from '~~/types';
 import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useScrollTo } from '~/../composables/useScrollTo'
 
-
+const { scrollTo } = useScrollTo()
 const props = defineProps<{
   personalData: PersonalInformationDataType;
   menuData: MenuDataType[];
@@ -173,32 +174,10 @@ const onScroll = () => {
   fixedTop.value = pos > 100;
 };
 
-
-const scrollToSection = (id: string) => {
-  const section = document.querySelector(id) as HTMLElement
-  if (section) {
-    const top = section.getBoundingClientRect().top + window.scrollY - 30 // 50px offset
-    window.scrollTo({
-      top,
-      behavior: 'smooth'
-    })
-  }
-}
-
 onMounted(() => {
   document.addEventListener("pointerdown", onClickOutside);
   window.addEventListener("scroll", onScroll);
   window.addEventListener("load", onScroll);
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      e.preventDefault()
-      const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href')
-      if (href) {
-        scrollToSection(href)
-      }
-    })
-  })
 });
 
 onBeforeUnmount(() => {
