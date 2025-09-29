@@ -93,6 +93,7 @@
     transform: translateY(100px);
     transition: all 0.3s;
     border: 1px solid light-dark($bg-color-light, $bg-color-dark);
+    z-index: 999;
 
     &.visible {
         opacity: 1;
