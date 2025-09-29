@@ -1,7 +1,7 @@
 import { ref, onMounted } from 'vue'
 
 export function useTheme() {
-  const currentTheme = ref<'light' | 'dark'>('light')
+  const currentTheme = ref<'light' | 'dark'>('dark')
 
   const setTheme = (theme: 'light' | 'dark') => {
     if (process.client) { // SSR-safe check
