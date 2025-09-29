@@ -23,8 +23,11 @@
                 <img src="/design/vue-logo.png" width="16" height="16" alt="Version Vue">
               </div>
               <ul class="version-menu">
-                <li><a href="https://alipashaskerov.vercel.app/"><img :src="currentTheme === 'dark' ? '/design/next-js-2.svg' : '/design/next-js.svg'" width="16" height="16" alt="Version Next"></a></li>
-                <li class="angular"><a href="https://alipashaskerov2.vercel.app/"><img src="/design/angular-logo.png" width="16" height="16" alt="Version Angular"></a></li>
+                <li><a href="https://alipashaskerov.vercel.app/"><img
+                      :src="currentTheme === 'dark' ? '/design/next-js-2.svg' : '/design/next-js.svg'" width="16"
+                      height="16" alt="Version Next"></a></li>
+                <li class="angular"><a href="https://alipashaskerov2.vercel.app/"><img src="/design/angular-logo.png"
+                      width="16" height="16" alt="Version Angular"></a></li>
               </ul>
             </div>
             <!-- Theme Button -->
@@ -33,7 +36,7 @@
               <i v-else class="pi pi-moon"></i>
             </button>
 
-            
+
             <!-- Mobile Menu Button -->
             <button class="menu-button d-lg-none" @click="toggleMenu" :class="{ active: menuState !== 'closed' }"
               aria-label="Mobile Menu toggle button" type="button">
@@ -171,10 +174,31 @@ const onScroll = () => {
 };
 
 
+const scrollToSection = (id: string) => {
+  const section = document.querySelector(id) as HTMLElement
+  if (section) {
+    const top = section.getBoundingClientRect().top + window.scrollY - 30 // 50px offset
+    window.scrollTo({
+      top,
+      behavior: 'smooth'
+    })
+  }
+}
+
 onMounted(() => {
   document.addEventListener("pointerdown", onClickOutside);
   window.addEventListener("scroll", onScroll);
   window.addEventListener("load", onScroll);
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault()
+      const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href')
+      if (href) {
+        scrollToSection(href)
+      }
+    })
+  })
 });
 
 onBeforeUnmount(() => {
