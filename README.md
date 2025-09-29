@@ -1,75 +1,28 @@
-# Nuxt Minimal Starter
+# Portfolio Projects
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This repository contains three versions of my personal portfolio, each built with a different modern web framework and fully powered by TypeScript.
 
-## Setup
+---
 
-Make sure to install dependencies:
+## Next.js Version
+This version of the portfolio is built with **Next.js 14** using **TypeScript**, **SSR/SSG**, **React hooks**, and modern routing features.
 
-```bash
-# npm
-npm install
+[View Next.js Version](https://alipashaskerov.vercel.app/)
 
-# pnpm
-pnpm install
+---
 
-# yarn
-yarn install
+## Angular Version
+This version of the portfolio is built with **Angular 18** using **TypeScript**, **component-based architecture**, **dependency injection**, and the Angular ecosystem.
 
-# bun
-bun install
-```
+[View Angular Version](https://alipashaskerov2.vercel.app/)
 
-## Development Server
+---
 
-Start the development server on `http://localhost:3000`:
+## Vue/Nuxt.js Version
+This version of the portfolio is built with **Nuxt.js 3 (Vue 3)** using **TypeScript**, **Vue reactivity**, **server-side rendering**, and Nuxt modules.
 
-```bash
-# npm
-npm run dev
+[View Vue/Nuxt.js Version](https://alipashaskerov3.vercel.app/)
 
-# pnpm
-pnpm dev
+---
 
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Feel free to explore each version and see how I implemented my portfolio with different technologies.
