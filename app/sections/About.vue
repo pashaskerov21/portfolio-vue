@@ -5,6 +5,11 @@
             <div class="about-wrapper">
                 <figure>
                     <img :src="personalData.image" alt='Alipasha Askerov - Full stack Developer'></img>
+                    <div class="overlay">
+                        <div class="logo-item">
+                            <Logo first-name="Alipasha" last-name="Askerov"/>
+                        </div>
+                    </div>
                 </figure>
                 <div class="wrapper-right">
                     <article aria-labelledby="about-title" v-html="personalData.aboutText"></article>
@@ -30,6 +35,7 @@
 
 <script setup lang="ts">
 import Counter from '~/components/Counter.vue';
+import Logo from '~/components/Logo.vue';
 import SocialIcons from '~/components/SocialIcons.vue';
 import type { PersonalInformationDataType } from '~~/types';
 
