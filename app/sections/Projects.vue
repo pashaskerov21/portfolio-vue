@@ -8,7 +8,7 @@
                         <img :src="project.image" width="400" height="200" :alt="project.title + 'preview'">
                         <div class="layer">
                             <div class="badge">
-                                {{ getCategoryName(project.category) }}
+                                {{ project.category }}
                             </div>
                             <ul class="project-skills">
                                 <li v-for="(skill,i) in getProjectSkills(project.skills)" :key="i"
@@ -51,19 +51,6 @@ const getProjectSkills = (skillNames: string[]) => {
     return [];
 }
 
-//category name
-const getCategoryName = (id: number): string => {
-    switch (id) {
-        case 1:
-            return 'fullstack';
-        case 2:
-            return 'frontend';
-        case 3:
-            return 'backend';
-        default:
-            return 'frontend';
-    }
-}
 onMounted(() => {
     if (props.projectData.length > 0) {
         filteredProjects.value = props.page === 'home' ? props.projectData.slice(0, 6) : props.projectData;

@@ -1,10 +1,10 @@
 <template>
     <Banner v-if="personalData" :personal-data="personalData" />
     <About v-if="personalData" :personal-data="personalData" />
+    <Projects v-if="skillData.length > 0 && projectData.length > 0" :skill-data="skillData" :project-data="projectData" page="home" />
+    <Skills v-if="skillData.length > 0" :skill-data="skillData" />
     <Services v-if="personalData" :personal-data="personalData" />
     <Experience v-if="personalData" :personal-data="personalData" />
-    <Skills v-if="skillData.length > 0" :skill-data="skillData" />
-    <Projects v-if="skillData.length > 0 && projectData.length > 0" :skill-data="skillData" :project-data="projectData" page="home" />
     <Education v-if="personalData" :personal-data="personalData" />
     <Contact/>
 </template>
